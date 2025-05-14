@@ -1,0 +1,84 @@
+{
+  "registration_flow": [
+    {
+      "type": "input",
+      "label": "Введіть своє ім’я:",
+      "variable": "first_name"
+    },
+    {
+      "type": "input",
+      "label": "Введіть своє прізвище:",
+      "variable": "last_name"
+    },
+    {
+      "type": "input",
+      "label": "Введіть дату народження (ДД.ММ.РРРР):",
+      "variable": "birth_date"
+    },
+    {
+      "type": "select",
+      "label": "Що вас цікавить?",
+      "variable": "interests",
+      "options": [
+        "Волонтерство",
+        "Події",
+        "Участь у проєктах",
+        "Адвокація",
+        "Членство в ГО"
+      ]
+    },
+    {
+      "type": "input",
+      "label": "Ваш навчальний заклад:",
+      "variable": "education"
+    },
+    {
+      "type": "input",
+      "label": "Ваш email або соцмережі:",
+      "variable": "contacts"
+    },
+    {
+      "type": "input",
+      "label": "Ваше місто або район:",
+      "variable": "city"
+    },
+    {
+      "type": "confirm",
+      "label": "Чи згодні ви на обробку персональних даних?",
+      "variable": "consent"
+    },
+    {
+      "type": "select",
+      "label": "До якого проєкту хочете долучитися?",
+      "variable": "project",
+      "options": [
+        "Академія Незламності",
+        "СУГА",
+        "Voice Up",
+        "Інше"
+      ]
+    },
+    {
+      "type": "api_request",
+      "label": "Надсилаємо ваші дані...",
+      "method": "POST",
+      "url": "https://script.google.com/macros/s/AKfycbz_7ClPh_MSKYVRBpFUTUgJzkR6GxANntBeeHt-m4mwLesA6qFYKIU-tsVDe7FSinAZ7w/exec",
+      "body": {
+        "first_name": "{{first_name}}",
+        "last_name": "{{last_name}}",
+        "birth_date": "{{birth_date}}",
+        "interests": "{{interests}}",
+        "education": "{{education}}",
+        "contacts": "{{contacts}}",
+        "city": "{{city}}",
+        "consent": "{{consent}}",
+        "project": "{{project}}"
+      }
+    },
+    {
+      "type": "redirect",
+      "label": "Реєстрацію завершено! Вас переадресовано в головне меню.",
+      "target_block": "main_menu"
+    }
+  ]
+}
